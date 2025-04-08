@@ -234,7 +234,7 @@ public class T3_complete_ContractDraftriviewal_with_sendformofdification extends
 			Thread.sleep(1000);
 			select = page_fucntion.contractnumber.getText();
 			System.out.println(select);
-
+System.out.println("request creation is completed");
 			Thread.sleep(3000);
 
 			page_fucntion.logout1.click();
@@ -288,7 +288,7 @@ public class T3_complete_ContractDraftriviewal_with_sendformofdification extends
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the contract reviewal task1 with approve");
 				Thread.sleep(1000);
 				{
 
@@ -375,7 +375,7 @@ public class T3_complete_ContractDraftriviewal_with_sendformofdification extends
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the contract reviewal task2 with approve");
 				Thread.sleep(1000);
 				{
 
@@ -462,7 +462,7 @@ public class T3_complete_ContractDraftriviewal_with_sendformofdification extends
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the ContractLawyer Allocation task");
 				Thread.sleep(1000);
 				{
 
@@ -549,7 +549,7 @@ public class T3_complete_ContractDraftriviewal_with_sendformofdification extends
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the ContractDraft-Reviewal task with send for modification");
 				Thread.sleep(1000);
 				{
 
@@ -626,7 +626,7 @@ public class T3_complete_ContractDraftriviewal_with_sendformofdification extends
 				
 				Thread.sleep(3000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the resubmission_tasks");
 				Thread.sleep(1000);
 				{
 

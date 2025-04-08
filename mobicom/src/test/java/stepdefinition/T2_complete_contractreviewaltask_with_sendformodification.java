@@ -70,7 +70,8 @@ public class T2_complete_contractreviewaltask_with_sendformodification extends c
 		utility.clickWithWait(page_fucntion.uploadtemplate);
 		Thread.sleep(1000);
 		page_fucntion.uploadtemplate1.sendKeys("/home/gautham/Downloads/sample1.docx");
-		Thread.sleep(8000);
+		Thread.sleep(12000);
+		
 		page_fucntion.proceedwithtemplate.click();
 		Thread.sleep(3000);
 
@@ -224,7 +225,7 @@ public class T2_complete_contractreviewaltask_with_sendformodification extends c
 			Thread.sleep(1000);
 			select = page_fucntion.contractnumber.getText();
 			System.out.println(select);
-
+System.out.println("request creation is completed");
 			Thread.sleep(3000);
 
 			page_fucntion.logout1.click();
@@ -279,6 +280,7 @@ public class T2_complete_contractreviewaltask_with_sendformodification extends c
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
+				System.out.println("complete the contract reviewal task one with send for modification is completed");
 
 				Thread.sleep(1000);
 				{
@@ -367,6 +369,7 @@ public class T2_complete_contractreviewaltask_with_sendformodification extends c
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
+				System.out.println("complete the contract reviewal task two with send for modification is completed");
 
 				Thread.sleep(1000);
 				{
@@ -444,7 +447,7 @@ public class T2_complete_contractreviewaltask_with_sendformodification extends c
 				
 				Thread.sleep(3000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete resubmission task is completed");
 				Thread.sleep(1000);
 				{
 

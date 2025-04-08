@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class page_fucntion {
-	@FindBy(xpath = "//span[text()=\" Contract  List \"]")
+	@FindBy(xpath = "//span[text()=\" Contract List \"]")
 	public static WebElement contractlist;
 	
 	@FindBy(css = "div span[title=\"New Contract Request\"]")

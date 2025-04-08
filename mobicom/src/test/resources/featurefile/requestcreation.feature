@@ -104,5 +104,60 @@ Feature: Mobicom Automation Testcasess
      And Contract Documents Verification task should complete
      And complete the contract termination
      
+      @renewecontractReviewModification
+    Scenario: complete the renewecontractreviewaltask with send for modification
+    Given request creation with yes
+    When create renew contract request
+    When complete contract reviewal task one with sendformodification
+    Then complete contract reviewal task two with sendformodification
+    And  complete the resubmission task in initiator
+     
+      @renewalContractDraft-Reviewal 
+    Scenario: complete the renewalContractDraft-Reviewal with send for modification
+    Given create the new contract request
+    When renew contract request created
+    When complete contract reviewal task1 with approve
+    When complete contract reviewal task2 with approve
+    Then complete ContractLawyer Allocation task
+    Then complete ContractDraft-Reviewal task with send for modification
+    And  complete resubmission_tasks
+    
+    @renewalContractDraft-authorization 
+    Scenario: complete the renewalContractDraft-authorization with send for modification
+    Given create new request
+    When create renew request
+    When complete the contract reviewal task one with approved
+    When complete the contract reviewal task two with approved
+    Then complete the contract lawyer Allocation task
+    Then complete the Contract Draft-Reviewal task with approve
+    And  complete the Contract Draft authorization task with send for modification
+    And  complete the resubmission task from initiator
+    
+    @renewecontractReviewReject
+    Scenario: complete the renewalcontractreviewaltask with Reject
+    Given create a new request in initiator
+    When create the renew contract request in initiator
+    When complete the contract reviewal task one with Rejected
+    Then complete the contract reviewal task two with Rejected
       
+      
+    @renewalContractDraft-ReviewalReject 
+    Scenario: complete the renewalContractDraft-Reviewal with Reject
+    Given initiator should create the new request
+    When initiator should create the renewal request
+    When complete the ContractReviewal taskone with approved
+    When complete the ContractReviewal tasktwo with approved
+    Then complete ContracLawyer allocation task
+    Then complete ContractDraft-Reviewal task with Reject
+    
+     @renewalContractDraft-authorizationReject 
+    Scenario: complete the renewalContractDraft-authorization with Reject
+    Given request creation in initiator
+    When renew request creation in initiator
+    When complete the contract reviewaltask first with approver
+    When complete the contract reviewaltask second with approver
+    Then Complete Contract - Lawyer Allocation task with select approver 
+    Then complete the contract-draft-Reviewal task with approver
+    And  complete the ContractDraft-authorization task with Rejected
+    
     

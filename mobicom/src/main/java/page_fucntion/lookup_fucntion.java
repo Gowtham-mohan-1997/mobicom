@@ -125,6 +125,8 @@ public class lookup_fucntion {
 	@FindBy(css=".k-animation-container li")
 	public static List<WebElement> type1;
 	
+	
+	
 	public static void selectlookupvalue(String... values)
 	{
 		
