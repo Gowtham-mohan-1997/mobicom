@@ -25,7 +25,7 @@ public class T2_complete_contractreviewaltask_with_sendformodification extends c
 		launchbrowser();
 		Thread.sleep(1000);
 		PageFactory.initElements(driver, login_page.class);
-
+//ftgu
 		login_page.username.sendKeys(properties.getProperty("iniatiator"));
 		Thread.sleep(1000);
 		login_page.password.sendKeys(properties.getProperty("password"));
