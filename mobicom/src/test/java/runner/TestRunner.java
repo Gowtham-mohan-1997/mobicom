@@ -9,8 +9,10 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 
 		features = "src/test/resources/featurefile/requestcreation.feature", // Path to the feature file
-		glue = { "stepdefinition" }, tags = "@renewalContractDraft-authorizationReject", plugin = { "pretty",
+		glue = { "stepdefinition" }, tags = "@oldcontractreneweContractDraft-authorizationReject", plugin = { "pretty",
 				"html:target/cucumber-reports/login.html" }, monochrome = true)
 public class TestRunner {
 
+	
+	
 }

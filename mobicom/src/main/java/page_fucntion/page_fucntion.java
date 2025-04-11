@@ -147,6 +147,14 @@ public class page_fucntion {
 	@FindBy(xpath = "//span[text()=\" Save \"]")
 	public static WebElement savedocument;
 
+	@FindBy(xpath = "//span[text()=\" Old Contract List \"]")
+	public static WebElement oldcontractlist;
+	
+	@FindBy(css = "div input[id=\"space-search\"]")
+	public static WebElement search;
+	
+	@FindBy(css = "div table tbody tr[data-kendo-grid-item-index=\"0\"]")
+	public static WebElement selctfirstcontract;
 
 	@FindBy(xpath = "/html/body/app-root/app-app-container/div[1]/div[2]/div[3]/app-app-common-detail/div[2]/div/div/div[4]/div")
 	public static WebElement status;

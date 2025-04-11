@@ -161,3 +161,52 @@ Feature: Mobicom Automation Testcasess
     And  complete the ContractDraft-authorization task with Rejected
     
     
+    @oldcontractrenewecontractReviewModification
+    Scenario: complete the oldcontractcontractreviewaltask with send for modification
+    Given renew the old contract 
+    When complete the renew contract reviewal task one with send for modification
+    Then complete the renew contract reviewal task two with send for modification
+    And  complete resubmission task in initiator
+    
+    @oldcontractreneweContractDraft-Reviewal 
+    Scenario: complete the ContractDraft-Reviewal with send for modification
+    Given renew the old contract request
+    When complete the contract review task1 with approve
+    When complete the contract review task2 with approve
+    Then complete the Contract-Lawyer Allocation task
+    Then complete the ContractDraftReview task with send for modification
+    And  complete the resubmission tasks
+    
+    @oldcontractreneweContractDraft-authorization 
+    Scenario: complete the ContractDraft-authorization task with send for modification
+    Given renew the oldcontract request
+    When complete the contract_reviewal task one with approve
+    When complete the contract_reviewal task two with approve
+    Then complete the contract_lawyer Allocation task
+    Then complete the Contract_Draft-Reviewal task with approve
+    And  complete the Contract_Draft_authorization task with send for modification
+    And  complete the resubmission_task
+    
+     @oldcontractrenewecontractReviewReject
+    Scenario: complete the contractreviewaltask with Reject
+    #Given renew the old contract request in initiator
+   # When complete the contract reviewal task_one with Rejected
+    Then complete contract reviewal task two with the Reject
+    
+     @oldcontractreneweContractDraft-ReviewalReject 
+    Scenario: complete the ContractDraft-Reviewal with Reject
+    Given renew the oldcontract in initiator
+    When complete the ContractReviewal task one with approved
+    When complete the ContractReviewal task two with approved
+    Then completed the ContractLawyer allocation task
+    Then completed the ContractDraft-Reviewal task with Reject
+    
+    @oldcontractreneweContractDraft-authorizationReject 
+    Scenario: complete the ContractDraft-authorization with Reject
+    Given renew the old contract from the initiator task 
+    When complete the contract reviewaltasks first with approve
+    When complete the contract reviewaltasks second with approve
+    Then Complete Contract - Lawyer Allocation tasks with select approver 
+    Then complete the contract-draft-Reviewal tasks with approve
+    And  complete the ContractDraft-authorization tasks with Reject
+    

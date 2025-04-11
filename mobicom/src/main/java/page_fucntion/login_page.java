@@ -1,9 +1,13 @@
 package page_fucntion;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class login_page {
+	
+
 	@FindBy(css = "input[name=\"loginName\"]")
 	public static WebElement username;
 	
@@ -12,5 +16,10 @@ public class login_page {
 	
 	@FindBy(xpath = "//button[text()=\"Login\"]")
 	public static WebElement login;
+	
+	
+
+	
+
 
 }
