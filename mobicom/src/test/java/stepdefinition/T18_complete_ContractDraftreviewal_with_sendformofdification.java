@@ -3,6 +3,7 @@ package stepdefinition;
 import java.io.IOException;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.devtools.v85.runtime.model.Timestamp;
 import org.openqa.selenium.support.PageFactory;
 
@@ -16,30 +17,41 @@ import page_fucntion.lookup_fucntion;
 import page_fucntion.page_fucntion;
 import page_fucntion.utility;
 
-public class T10_complete_terminate extends common_fucntion{
+public class T18_complete_ContractDraftreviewal_with_sendformofdification extends common_fucntion{
 	public static String select;
-	public String receiptValue1 =new Timestamp(System.currentTimeMillis()).toString();
+	public static String renew;
 
+	public String receiptValue1 = new Timestamp(System.currentTimeMillis()).toString();
 
-	@Given("create contract request with yes")
-	public void create_contract_request_with_yes() throws IOException, InterruptedException {
+	public void selectcontract() throws InterruptedException {
+		PageFactory.initElements(driver, page_fucntion.class);
+		page_fucntion.oldcontractlist.click();
+		Thread.sleep(2000);
+		page_fucntion.search.sendKeys(properties.getProperty("oldcontact"));
+		Thread.sleep(1000);
+		page_fucntion.search.sendKeys(Keys.ENTER);
+		Thread.sleep(1000);
+		page_fucntion.selctfirstcontract.click();
+		;
+		Thread.sleep(1000);
+
+	}
+
+	@Given("renew the old contract request")
+	public void create_the_contract_requets() throws IOException, InterruptedException {
 		launchbrowser();
 		Thread.sleep(1000);
 		PageFactory.initElements(driver, login_page.class);
-		PageFactory.initElements(driver, page_fucntion.class);
+//ftgu
 		login_page.username.sendKeys(properties.getProperty("iniatiator"));
 		Thread.sleep(1000);
 		login_page.password.sendKeys(properties.getProperty("password"));
 		Thread.sleep(1000);
 		login_page.login.click();
 		Thread.sleep(1000);
-	
-		
+		selectcontract();
+		page_fucntion.renewcontract.click();
 		Thread.sleep(1000);
-		utility.clickWithWait(page_fucntion.contractlist);
-		Thread.sleep(1000);
-		utility.clickWithWait(page_fucntion.newcontractrequest);
-		Thread.sleep(3000);
 
 		PageFactory.initElements(driver, lookup_fucntion.class);
 		page_fucntion.contracttitle.sendKeys(receiptValue1);
@@ -72,18 +84,11 @@ public class T10_complete_terminate extends common_fucntion{
 		utility.clickWithWait(page_fucntion.uploadtemplate);
 		Thread.sleep(1000);
 		page_fucntion.uploadtemplate1.sendKeys("/home/gautham/Downloads/sample1.docx");
-		Thread.sleep(8000);
-		for (int i = 0; i < 20; i++) {
-			try {
-				page_fucntion.proceedwithtemplate.click();
-				Thread.sleep(3000);
+		Thread.sleep(12000);
 
-				break;
-			} catch (Exception e) {
-				Thread.sleep(1000);
-			}
+		page_fucntion.proceedwithtemplate.click();
+		Thread.sleep(3000);
 
-		}
 		page_fucntion.next.click();
 		Thread.sleep(3000);
 		page_fucntion.savedocument.click();
@@ -222,7 +227,7 @@ public class T10_complete_terminate extends common_fucntion{
 		{
 			for (int i = 0; i < 20; i++) {
 				try {
-					page_fucntion.contractlist.click();
+					page_fucntion.contractrenewal.click();
 					Thread.sleep(1000);
 					break;
 				} catch (Exception e) {
@@ -232,9 +237,9 @@ public class T10_complete_terminate extends common_fucntion{
 			}
 			page_fucntion.contractlistselectfirsttask.click();
 			Thread.sleep(1000);
-			select = page_fucntion.contractnumber.getText();
-			System.out.println(select);
-
+			renew = page_fucntion.contractnumber.getText();
+			 System.out.println("renewcontractnumber"+renew);
+			System.out.println("request creation is completed");
 			Thread.sleep(3000);
 
 			page_fucntion.logout1.click();
@@ -246,9 +251,8 @@ public class T10_complete_terminate extends common_fucntion{
 		}
 
 	}
-
-	@When("contract draft reviewal first task should be complete with approve")
-	public void contract_draft_reviewal_first_task_should_be_complete_with_approve() throws InterruptedException {
+	@When("complete the contract review task1 with approve")
+	public void complete_the_contract_reviewal_task1_with_approve() throws InterruptedException {
 		PageFactory.initElements(driver, login_page.class);
 
 		login_page.username.sendKeys(properties.getProperty("divisiondirector"));
@@ -270,7 +274,7 @@ public class T10_complete_terminate extends common_fucntion{
 			System.out.println("contractnumber1 : ->" + select1);
 			if
 
-			(select1.contains(select)) {
+			(select1.contains(renew)) {
 				;
 
 				System.out.println("Yeah... expectrecieptnumber matched");
@@ -288,7 +292,7 @@ public class T10_complete_terminate extends common_fucntion{
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the contract reviewal task1 with approve");
 				Thread.sleep(1000);
 				{
 
@@ -334,8 +338,8 @@ public class T10_complete_terminate extends common_fucntion{
 				}
 		}
 	}
-	@When("contract draft reviewal second task should be complete with approve")
-	public void contract_draft_reviewal_second_task_should_be_complete_with_approve() throws InterruptedException {
+	@When("complete the contract review task2 with approve")
+	public void complete_the_contract_reviewal_task2_with_approve() throws InterruptedException {
 		PageFactory.initElements(driver, login_page.class);
 
 		login_page.username.sendKeys(properties.getProperty("divisiondirector1"));
@@ -357,7 +361,7 @@ public class T10_complete_terminate extends common_fucntion{
 			System.out.println("contractnumber1 : ->" + select1);
 			if
 
-			(select1.contains(select)) {
+			(select1.contains(renew)) {
 				;
 
 				System.out.println("Yeah... expectrecieptnumber matched");
@@ -375,7 +379,7 @@ public class T10_complete_terminate extends common_fucntion{
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the contract reviewal task2 with approve");
 				Thread.sleep(1000);
 				{
 
@@ -421,8 +425,8 @@ public class T10_complete_terminate extends common_fucntion{
 				}
 		}
 	}
-	@Then("Contract - Lawyer Allocation task should complete")
-	public void Contract_Lawyer_Allocation_task_should_complete() throws InterruptedException {
+	@Then("complete the Contract-Lawyer Allocation task")
+	public void complete_the_ContractLawyer_Allocation_task() throws InterruptedException {
 		PageFactory.initElements(driver, login_page.class);
 
 		login_page.username.sendKeys(properties.getProperty("approver"));
@@ -444,7 +448,7 @@ public class T10_complete_terminate extends common_fucntion{
 			System.out.println("contractnumber1 : ->" + select1);
 			if
 
-			(select1.contains(select)) {
+			(select1.contains(renew)) {
 				;
 
 				System.out.println("Yeah... expectrecieptnumber matched");
@@ -462,10 +466,10 @@ public class T10_complete_terminate extends common_fucntion{
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the ContractLawyer Allocation task");
 				Thread.sleep(1000);
 				{
-//sdfh
+
 					// WebElement logout = driver.findElement(By.cssSelector("div.app-header-right
 					// span.k-i-logout"));
 
@@ -508,8 +512,8 @@ public class T10_complete_terminate extends common_fucntion{
 				}
 		}
 	}
-	@Then("Contract Draft - Lawyer Approval task should complete")
-	public void Contract_Draft_Lawyer_Approval_task_should_complete() throws InterruptedException {
+	@Then("complete the ContractDraftReview task with send for modification")
+	public void complete_the_ContractDraftReviewal_task_with_send_for_modification() throws InterruptedException {
 		PageFactory.initElements(driver, login_page.class);
 
 		login_page.username.sendKeys(properties.getProperty("approver"));
@@ -531,7 +535,7 @@ public class T10_complete_terminate extends common_fucntion{
 			System.out.println("contractnumber1 : ->" + select1);
 			if
 
-			(select1.contains(select)) {
+			(select1.contains(renew)) {
 				;
 
 				System.out.println("Yeah... expectrecieptnumber matched");
@@ -543,13 +547,13 @@ public class T10_complete_terminate extends common_fucntion{
 				lookup_fucntion.ContractDraftLawyerApprovalDecision.click();
 				Thread.sleep(1000);
 
-				lookup_fucntion.selectlookupvalue("Approve");
+				lookup_fucntion.selectlookupvalue("Send for Modification");
 				Thread.sleep(1000);
 				JavascriptExecutor jw = (JavascriptExecutor) driver;
 				jw.executeScript("window.scrollBy(0,-6000)");
 				Thread.sleep(1000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the ContractDraft-Reviewal task with send for modification");
 				Thread.sleep(1000);
 				{
 
@@ -595,95 +599,8 @@ public class T10_complete_terminate extends common_fucntion{
 				}
 		}
 	}
-	@Then("Contract Draft Authorization task should be complete")
-	public void Contract_Draft_Authorization_task_should_be_complete() throws InterruptedException {
-		PageFactory.initElements(driver, login_page.class);
-
-		login_page.username.sendKeys(properties.getProperty("Authorization"));
-		Thread.sleep(1000);
-		login_page.password.sendKeys(properties.getProperty("password"));
-		Thread.sleep(1000);
-		login_page.login.click();
-		Thread.sleep(1000);
-		Boolean s = true;
-		while (s.equals(true)) {
-			page_fucntion.inbox.click();
-			Thread.sleep(1000);
-			page_fucntion.contractmanagement.click();
-			Thread.sleep(1000);
-			page_fucntion.selectfirsttask.click();
-			Thread.sleep(1000);
-
-			String select1 = page_fucntion.contractnumber1.getText();
-			System.out.println("contractnumber1 : ->" + select1);
-			if
-
-			(select1.contains(select)) {
-				;
-
-				System.out.println("Yeah... expectrecieptnumber matched");
-				s = false;
-				JavascriptExecutor j = (JavascriptExecutor) driver;
-				j.executeScript("window.scrollBy(0,1000)");
-				Thread.sleep(1000);
-
-				lookup_fucntion.ContractDraftAuthorizerDecision.click();
-				Thread.sleep(1000);
-
-				lookup_fucntion.selectlookupvalue("Approve");
-				Thread.sleep(1000);
-				JavascriptExecutor jw = (JavascriptExecutor) driver;
-				jw.executeScript("window.scrollBy(0,-6000)");
-				Thread.sleep(1000);
-				page_fucntion.completetask.click();
-
-				Thread.sleep(1000);
-				{
-
-					// WebElement logout = driver.findElement(By.cssSelector("div.app-header-right
-					// span.k-i-logout"));
-
-					for (int i = 0; i < 40; i++) {
-						try {
-							page_fucntion.logout1.click();
-							Thread.sleep(2000);
-
-							page_fucntion.logout2.click();
-							Thread.sleep(1000);
-
-							break;
-						} catch (Exception e) {
-							Thread.sleep(1000);
-						}
-
-					}
-
-				}
-
-				break;
-
-			} else
-				for (int i = 0; i < 20; i++) {
-					Thread.sleep(5000);
-					try {
-						page_fucntion.inbox.click();
-						Thread.sleep(1000);
-						page_fucntion.contractmanagement.click();
-						Thread.sleep(1000);
-						page_fucntion.selectfirsttask.click();
-						Thread.sleep(1000);
-
-						System.out.println("Yeah... notexpectrecieptnumber matched");
-						break;
-					} catch (Exception e) {
-						Thread.sleep(1000);
-					}
-
-				}
-		}
-	}
-	@Then("Upload updated Brief Information Document task should complete")
-	public void Upload_updated_Brief_Information_Document_task_should_complete() throws InterruptedException {
+	@And("complete the resubmission tasks")
+	public void complete_the_resubmission_tasks() throws InterruptedException {
 		PageFactory.initElements(driver, login_page.class);
 
 		login_page.username.sendKeys(properties.getProperty("iniatiator"));
@@ -705,22 +622,15 @@ public class T10_complete_terminate extends common_fucntion{
 			System.out.println("contractnumber1 : ->" + select1);
 			if
 
-			(select1.contains(select)) {
+			(select1.contains(renew)) {
 				;
 
 				System.out.println("Yeah... expectrecieptnumber matched");
 				s = false;
-				JavascriptExecutor j = (JavascriptExecutor) driver;
-				j.executeScript("window.scrollBy(0,1000)");
-				Thread.sleep(2000);
-
-				page_fucntion.BriefInformationDocumentReupload.sendKeys("/home/gautham/Downloads/Brief information template_2024.06.05.xlsx");
-				Thread.sleep(1000);
-				JavascriptExecutor jw = (JavascriptExecutor) driver;
-				jw.executeScript("window.scrollBy(0,-6000)");
-				Thread.sleep(1000);
+				
+				Thread.sleep(3000);
 				page_fucntion.completetask.click();
-
+System.out.println("complete the resubmission_tasks");
 				Thread.sleep(1000);
 				{
 
@@ -756,255 +666,6 @@ public class T10_complete_terminate extends common_fucntion{
 						Thread.sleep(1000);
 						page_fucntion.selectfirsttask.click();
 						Thread.sleep(1000);
-
-						System.out.println("Yeah... notexpectrecieptnumber matched");
-						break;
-					} catch (Exception e) {
-						Thread.sleep(1000);
-					}
-
-				}
-		}
-	}
-	@And("Upload Signed Contract task should complete")
-	public void Upload_Signed_Contract_task_should_complete() throws InterruptedException {
-		PageFactory.initElements(driver, login_page.class);
-
-		login_page.username.sendKeys(properties.getProperty("iniatiator"));
-		Thread.sleep(1000);
-		login_page.password.sendKeys(properties.getProperty("password"));
-		Thread.sleep(1000);
-		login_page.login.click();
-		Thread.sleep(1000);
-		Boolean s = true;
-		while (s.equals(true)) {
-			page_fucntion.inbox.click();
-			Thread.sleep(1000);
-			page_fucntion.contractmanagement.click();
-			Thread.sleep(1000);
-			page_fucntion.selectfirsttask.click();
-			Thread.sleep(1000);
-
-			String select1 = page_fucntion.contractnumber1.getText();
-			System.out.println("contractnumber1 : ->" + select1);
-			if
-
-			(select1.contains(select)) {
-				;
-
-				System.out.println("Yeah... expectrecieptnumber matched");
-				s = false;
-				JavascriptExecutor j = (JavascriptExecutor) driver;
-				j.executeScript("window.scrollBy(0,1000)");
-				Thread.sleep(2000);
-
-				page_fucntion.uploadsignedcontract.sendKeys("/home/gautham/Downloads/sign.png");
-				Thread.sleep(1000);
-				JavascriptExecutor jw = (JavascriptExecutor) driver;
-				jw.executeScript("window.scrollBy(0,-6000)");
-				Thread.sleep(1000);
-				page_fucntion.completetask.click();
-
-				Thread.sleep(1000);
-				{
-
-					// WebElement logout = driver.findElement(By.cssSelector("div.app-header-right
-					// span.k-i-logout"));
-
-					for (int i = 0; i < 40; i++) {
-						try {
-							page_fucntion.logout1.click();
-							Thread.sleep(2000);
-
-							page_fucntion.logout2.click();
-							Thread.sleep(1000);
-
-							break;
-						} catch (Exception e) {
-							Thread.sleep(1000);
-						}
-
-					}
-
-				}
-
-				break;
-
-			} else
-				for (int i = 0; i < 20; i++) {
-					Thread.sleep(5000);
-					try {
-						page_fucntion.inbox.click();
-						Thread.sleep(1000);
-						page_fucntion.contractmanagement.click();
-						Thread.sleep(1000);
-						page_fucntion.selectfirsttask.click();
-						Thread.sleep(1000);
-
-						System.out.println("Yeah... notexpectrecieptnumber matched");
-						break;
-					} catch (Exception e) {
-						Thread.sleep(1000);
-					}
-
-				}
-		}
-	
-		
-	}
-	
-	
-	@And("Contract Documents Verification task should complete")
-	public void Contract_Documents_Verification_task_should_complete() throws InterruptedException {
-		PageFactory.initElements(driver, login_page.class);
-
-		login_page.username.sendKeys(properties.getProperty("CEO"));
-		Thread.sleep(1000);
-		login_page.password.sendKeys(properties.getProperty("password"));
-		Thread.sleep(1000);
-		login_page.login.click();
-		Thread.sleep(1000);
-		Boolean s = true;
-		while (s.equals(true)) {
-			page_fucntion.inbox.click();
-			Thread.sleep(1000);
-			page_fucntion.contractmanagement.click();
-			Thread.sleep(1000);
-			page_fucntion.selectfirsttask.click();
-			Thread.sleep(1000);
-
-			String select1 = page_fucntion.contractnumber1.getText();
-			System.out.println("contractnumber1 : ->" + select1);
-			if
-
-			(select1.contains(select)) {
-				;
-
-				System.out.println("Yeah... expectrecieptnumber matched");
-				s = false;
-
-				Thread.sleep(1000);
-				page_fucntion.completetask.click();
-
-				Thread.sleep(1000);
-				{
-
-					// WebElement logout = driver.findElement(By.cssSelector("div.app-header-right
-					// span.k-i-logout"));
-
-					for (int i = 0; i < 40; i++) {
-						try {
-							page_fucntion.logout1.click();
-							Thread.sleep(2000);
-
-							page_fucntion.logout2.click();
-							Thread.sleep(1000);
-
-							break;
-						} catch (Exception e) {
-							Thread.sleep(1000);
-						}
-
-					}
-
-				}
-
-				break;
-
-			} else
-				for (int i = 0; i < 20; i++) {
-					Thread.sleep(5000);
-					try {
-						page_fucntion.inbox.click();
-						Thread.sleep(1000);
-						page_fucntion.contractmanagement.click();
-						Thread.sleep(1000);
-						page_fucntion.selectfirsttask.click();
-						Thread.sleep(1000);
-
-						System.out.println("Yeah... notexpectrecieptnumber matched");
-						break;
-					} catch (Exception e) {
-						Thread.sleep(1000);
-					}
-
-				}
-		
-		}
-		}
-	@And("complete the contract termination")
-	public void completethe_contract_termination() throws InterruptedException {
-		PageFactory.initElements(driver, login_page.class);
-
-		login_page.username.sendKeys(properties.getProperty("iniatiator"));
-		Thread.sleep(1000);
-		login_page.password.sendKeys(properties.getProperty("password"));
-		Thread.sleep(1000);
-		login_page.login.click();
-		Thread.sleep(1000);
-		Boolean s = true;
-		while (s.equals(true)) {
-			page_fucntion.contractlist.click();
-			Thread.sleep(3000);
-			page_fucntion.contractlistselectfirsttask.click();
-			Thread.sleep(1000);
-		
-
-			String select1 = page_fucntion.contractnumber.getText();
-			System.out.println("contractnumber : ->" + select1);
-			if
-
-			(select1.contains(select)) {
-				;
-
-				System.out.println("Yeah... expectrecieptnumber matched");
-				s = false;
-				Thread.sleep(1000);
-				page_fucntion.terminate.click();
-				Thread.sleep(1000);
-			
-			page_fucntion.reasonfortermination.sendKeys("termination");
-			Thread.sleep(1000);
-			
-				page_fucntion.save.click();
-				Thread.sleep(1000);
-				page_fucntion.contractlist.click();
-				Thread.sleep(1000);
-				page_fucntion.contractlistselectfirsttask.click();
-				Thread.sleep(1000);
-				String status=page_fucntion.status.getText();
-				System.out.println(status);
-				Thread.sleep(1000);
-				{
-
-					for (int i = 0; i < 40; i++) {
-						try {
-							page_fucntion.logout1.click();
-							Thread.sleep(2000);
-
-							page_fucntion.logout2.click();
-							Thread.sleep(1000);
-
-							break;
-						} catch (Exception e) {
-							Thread.sleep(1000);
-						}
-
-					}
-
-				}
-
-				break;
-
-			} else
-				for (int i = 0; i < 20; i++) {
-					Thread.sleep(5000);
-					try {
-						page_fucntion.contractlist.click();
-						Thread.sleep(1000);
-						page_fucntion.contractlistselectfirsttask.click();
-						Thread.sleep(1000);
-					
 
 						System.out.println("Yeah... notexpectrecieptnumber matched");
 						break;
